@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'public/dist/libs.js': ['public/javascripts/lib/**/*.js'],
+          'public/dist/libs.js': ['public/javascripts/lib/**/*.js', '!public/javascripts/lib/codemirror.min.js'],
           'public/dist/built.js': ['public/javascripts/*.js']
         }
       }
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
         ignores: [
           'public/dist/**/*.js',
-          'public/javascripts/lib/**/*.js'
+          'public/javascripts/lib/**/*.js',
         ]
       }
     },
@@ -59,6 +59,7 @@ module.exports = function(grunt) {
       scripts: {
         files: [
           'public/**/*.js',
+          'Gruntfile.js'
         ],
         tasks: [
           'build',
