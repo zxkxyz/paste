@@ -57,6 +57,12 @@ module.exports = function(grunt) {
           src: 'sweetalert.css',
           dest: 'public/dist',
           ext: '.min.css'
+        },{
+          expand: true,
+          cwd: 'public/stylesheets',
+          src: 'monokai-codemirror.css',
+          dest: 'public/dist',
+          ext: '.min.css'
         }]
       }
     },

@@ -23,7 +23,7 @@ In addition to working with standard web servers, Paste was designed to work wit
 - Optionally, follow the heroku instructions to add a CNAME record from a custom domain that points to your Heroku Paste app.
 - You're done! It's as simple as that!
 
-Pushing to Heroku automatically builds/downloads the dependencies for you so there's nothing else involved.
+Pushing to Heroku automatically builds/downloads the dependencies for you so there's nothing else involved. You will not have the same site fonts as I do because I'm importing a TypeKit. You can simply edit this code in case you want to import your own TypeKit. But don't worry, the CSS will default to matching system fonts in case TypeKit fails.
 
 #### Custom/Firebase version ####
 If you'd like to run the application outside of Heroku you'll still need a Firebase database. If you plan on doing this, make sure you edit the _config.example.js_ file with your Firebase DB details and then rename the file to _config.js_.

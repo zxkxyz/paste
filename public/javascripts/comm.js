@@ -7,10 +7,11 @@ if(window.localStorage.myEditor !== undefined) {
 var editor = CodeMirror(document.getElementById("codeArea"),
   {
     value: initText,
+    theme: 'monokai',
+    autoCloseBrackets: true,
     lineNumbers: true,
     tabSize: 2,
     smartIndent: true,
-    mode: "javascript"
   });
 
 window.localStorage.myEditor = editor.getValue();

@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css")
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/monokai.min.css")
   script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js")
+  h2 Paste
   pre
     code #{text}
-  script $(function() { hljs.initHighlighting(); });
+  script $(function() { hljs.configure({tabReplace: '  '}); hljs.initHighlighting(); $('h2').on('click', function() { window.location.href="/" })});

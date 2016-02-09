@@ -2,12 +2,14 @@ var http = require('http');
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var compress = require('compression');
 
 var routes = require('./routes/index');
 var upload = require('./routes/upload');
 var files = require('./routes/files');
 
 var app = express();
+app.use(compress());
 
 var port = process.env.PORT || '3000';
 app.set('port', port);
