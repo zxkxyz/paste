@@ -12,7 +12,6 @@ var editor = CodeMirror(document.getElementById("codeArea"),
     lineNumbers: true,
     tabSize: 2,
     smartIndent: true,
-    mode: "javascript"
   });
 
 window.localStorage.myEditor = editor.getValue();
