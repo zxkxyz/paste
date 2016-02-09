@@ -3,9 +3,19 @@ extends layout
 block content
   div(class="main")
     h1= title
-    p This is #{title}. Get started by dropping a file into the editor below or just start typing. We'll automatically detect the syntax for you once you submit the file.
+    p This is #{title}. Get started by dropping a file into the editor below or just start typing. Select a syntax from the dropdown.
     label(for="title") Title:
     input(type="text" id="title" placeholder="Optional")
+    select(class="dropdown-menu")
+      option(class="syntax" value="javascript") CSS
+      option(class="syntax" value="coffesript") CoffeeScript
+      option(class="syntax" value="jade") Jade
+      option(class="syntax" value="javascript") JavaScript
+      option(class="syntax" value="markdown") Markdown
+      option(class="syntax" value="nginx") nginx
+      option(class="syntax" value="php") php
+      option(class="syntax" value="sass") sass
+      option(class="syntax" value="sql") sql
     div(id='codeArea')
     div(value="Share" id="codeSubmit" class='myButton') Submit
 

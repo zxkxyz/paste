@@ -1,5 +1,5 @@
 // Make the editor
-var initText = "";
+var initText = "", defaultMode = "javascript";
 if(window.localStorage.myEditor !== undefined) {
   initText = window.localStorage.myEditor;
 }
@@ -11,7 +11,9 @@ var editor = CodeMirror(document.getElementById("codeArea"),
     autoCloseBrackets: true,
     lineNumbers: true,
     tabSize: 2,
+    mode: defaultMode,
     smartIndent: true,
+    autofocus: true,
   });
 
 window.localStorage.myEditor = editor.getValue();
@@ -53,9 +55,17 @@ editor.on('change', function() {
 
 // Only add listeners once DOM element exists
 $(function() {
+
   $('#codeSubmit').click(function() {
     var title = $('#title').val();
     var text = editor.getValue();
     saveCode(title, text);
+  });
+
+  $('select').on('change', function(e) {
+    var option = $("option:selected", this);
+    var val = this.value;
+    console.log(val);
+    editor.setOption("mode", val);
   });
 })

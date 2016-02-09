@@ -8,14 +8,14 @@
 
 h1 {
   text-align: center;
-  font-family: "kinescope",sans-serif;
+  font-family: "industry-inc-3d",sans-serif;
   font-size: 8em;
   line-height: 10%;
 }
 
 h2 {
   text-align: center;
-  font-family: "kinescope",sans-serif;
+  font-family: "industry-inc-3d",sans-serif;
   font-size: 3em;
   line-height: 10%;
 }
@@ -24,11 +24,11 @@ h2 {
   background-color:#77cbff;
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
-  border-radius:10px;
+  border-radius:0px;
   display:inline-block;
   cursor:pointer;
   color:#ffffff;
-  font-family:Arial;
+  font-family: "chaparral-pro",sans-serif;
   font-size:17px;
   padding:13px 22px;
   text-decoration:none;
@@ -50,6 +50,7 @@ h2 {
 }
 
 a {
+  font-family: "chaparral-pro",sans-serif;
   color: #00B7FF;
 }
 
