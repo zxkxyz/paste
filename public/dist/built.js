@@ -33,7 +33,8 @@ function saveCode(title, text) {
     contentType: 'application/json',
     data: JSON.stringify(obj),
     success: function(data) {
-      console.log("SUCCESS!");
+      console.log("SUCCESS!", data);
+      window.location.href = data.redirect_url;
     },
     error: function(data, err) {
       console.log("some kind of error");

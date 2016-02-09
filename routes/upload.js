@@ -5,10 +5,11 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {
   console.log("got a post");
-  console.log(req.body);
+  console.log(req.header('Referer') + 't/' + req.body.title);
   var main = db.child(req.body.title);
   main.child('text').set(req.body.text);
-  res.redirect(req.url);
+  console.log('/t/' + req.body.title);
+  res.send({redirect_url: req.header('Referer') + "t/" + req.body.title});
 });
 
 router.get('/', function(req, res, next) {

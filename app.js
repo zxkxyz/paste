@@ -26,8 +26,6 @@ app.use('/*', function(req, res, next) {
   res.redirect('/');
 });
 
-// Change this when using something like Heroku
-console.log(process.env.FIREBASE_URL);
 console.log("NODE_ENV:", app.get('env'));
 
 var server = http.createServer(app);
