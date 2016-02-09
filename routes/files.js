@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var Firebase = require("firebase");
-var config = require('../config');
 var db = require('../server/db.js').firebase;
 var router = express.Router();
 var qs = require('querystring');
@@ -12,7 +11,7 @@ router.use(bodyParser.json());
 router.get('/:something', function(req, res, next) {
   var path = db.child(req.params.something).child('text');
   var text = "test"
-  new Firebase(config.FIREBASE_URL + req.params.something + "/text").once('value', function(snap) {
+  new Firebase((process.env.FIREBASE_URL || require('../config').FIREBASE_URL) + req.params.something + "/text").once('value', function(snap) {
    console.log(snap.val());
    if(snap.val() === null) {
     res.redirect('/');

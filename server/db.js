@@ -1,6 +1,5 @@
 var Firebase = require('firebase');
-var config = require('../config');
-var myFirebaseRef = new Firebase(config.FIREBASE_URL);
+var myFirebaseRef = new Firebase(process.env.FIREBASE_URL || require('../config').FIREBASE_URL);
 
 module.exports = {
   firebase: myFirebaseRef,

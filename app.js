@@ -27,7 +27,7 @@ app.use('/*', function(req, res, next) {
 });
 
 // Change this when using something like Heroku
-process.env['NODE_ENV'] = "dev";
+console.log(process.env.FIREBASE_URL);
 console.log("NODE_ENV:", app.get('env'));
 
 var server = http.createServer(app);
