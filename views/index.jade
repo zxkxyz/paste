@@ -3,5 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  label(for="title") Title:
+  input(type="text" id="title" placeholder="Optional")
   div(id='codeArea')
-  button(type="submit" value="Share" class="codeSubmit") Submit
+  button(type="submit" value="Share" id="codeSubmit") Submit
+
+  link(rel='stylesheet' href='/dist/codemirror.min.css')
+  script(src="/javascripts/lib/codemirror.min.js")
+  script(src="/dist/built.min.js")

@@ -1,5 +1,4 @@
 // Make the editor
-
 var initText = "";
 if(window.localStorage.myEditor !== undefined) {
   initText = window.localStorage.myEditor;
@@ -10,31 +9,34 @@ var editor = CodeMirror(document.getElementById("codeArea"),
     value: initText,
     lineNumbers: true,
     tabSize: 2,
-    smartIndent: true
+    smartIndent: true,
+    mode: "javascript"
   });
 
 window.localStorage.myEditor = editor.getValue();
 
-// URL for saving/requesting
-var API_URL = 'http://localhost:3000/'
-
-function submitCode(title, data, syntax) {
-  var url = API_URL + 'upload';
+function saveCode(title, text) {
+  if(text === "") {
+    return sweetAlert("Oops...", "You can't submit an empty file!", "error");
+  } else if (title === "") {
+    title = (Math.random() + 1).toString(36).substring(7);
+  }
 
   var obj = {
     title: title,
-    codemirror: data,
-    syntax: 'plaintext'
+    text: text
   }
 
   $.ajax({
     type: "POST",
-    url: url,
-    data: obj,
+    url: '/upload',
+    contentType: 'application/json',
+    data: JSON.stringify(obj),
     success: function(data) {
-      console.log("SUCCESS:", data);
+      console.log("SUCCESS!");
     },
     error: function(data, err) {
+      console.log("some kind of error");
       if (err) throw err;
     }
   });
@@ -42,13 +44,13 @@ function submitCode(title, data, syntax) {
 
 editor.on('change', function() {
   window.localStorage.myEditor = editor.getValue();
-  console.log("stored new state");
-  console.log(window.localStorage.myEditor);
 });
 
-
-$('.codeSubmit').click(function() {
-  var text = editor.getValue();
-  alert(text);
-  // submitCode($('.codeInput').val());
-});
+// Only add listeners once DOM element exists
+$(function() {
+  $('#codeSubmit').click(function() {
+    var title = $('#title').val();
+    var text = editor.getValue();
+    saveCode(title, text);
+  });
+})

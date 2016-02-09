@@ -1,14 +1,14 @@
 var express = require('express');
-var fs = require('fs');
 var path = require('path');
+var db = require('../server/db.js').firebase;
 var router = express.Router();
 
-/* GET users listing. */
 router.post('/', function(req, res, next) {
   console.log("got a post");
   console.log(req.body);
-  fs.writeFile(path.join(__dirname, 'uploads'), req.body, options, callback_);
-  res.send(req.body);
+  var main = db.child(req.body.title);
+  main.child('text').set(req.body.text);
+  res.redirect(req.url);
 });
 
 router.get('/', function(req, res, next) {

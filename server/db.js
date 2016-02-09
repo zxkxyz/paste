@@ -1,2 +1,7 @@
 var Firebase = require('firebase');
-var myFirebaseRef = new Firebase("https://resplendent-fire-8862.firebaseio.com/");
+var config = require('../config');
+var myFirebaseRef = new Firebase(config.FIREBASE_URL);
+
+module.exports = {
+  firebase: myFirebaseRef,
+};

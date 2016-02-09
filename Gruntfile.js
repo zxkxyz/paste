@@ -51,6 +51,12 @@ module.exports = function(grunt) {
           src: 'codemirror.css',
           dest: 'public/dist',
           ext: '.min.css'
+        },{
+          expand: true,
+          cwd: 'public/stylesheets',
+          src: 'sweetalert.css',
+          dest: 'public/dist',
+          ext: '.min.css'
         }]
       }
     },
