@@ -2,12 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p This is #{title}. Get started by dropping a file into the editor below or just start typing. We'll automatically detect the syntax for you once you submit the file.
   label(for="title") Title:
   input(type="text" id="title" placeholder="Optional")
   div(id='codeArea')
   button(type="submit" value="Share" id="codeSubmit") Submit
 
-  link(rel='stylesheet' href='/dist/codemirror.min.css')
+  link(rel='stylesheet' href='/stylesheets/codemirror.css')
   script(src="/javascripts/lib/codemirror.min.js")
   script(src="/dist/built.min.js")

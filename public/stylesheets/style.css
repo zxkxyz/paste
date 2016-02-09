@@ -1,6 +1,21 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 70%;
+  margin: auto;
+  font-family: "chaparral-pro",sans-serif;
+  text-align: center;
+}
+
+h1 {
+  text-align: middle;
+  font-family: "kinescope",sans-serif;
+  font-size: 7em;
+  line-height: 10%;
+}
+
+#codeArea {
+  text-align: left;
+  height: 90%;
+  margin-bottom: 2%;
 }
 
 a {

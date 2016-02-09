@@ -17,7 +17,7 @@ window.localStorage.myEditor = editor.getValue();
 
 function saveCode(title, text) {
   if(text === "") {
-    return sweetAlert("Oops...", "You can't submit an empty file!", "error");
+    return sweetAlert("Empty file...", "You can't submit an empty file!", "error");
   } else if (title === "") {
     title = (Math.random() + 1).toString(36).substring(7);
   }
@@ -34,6 +34,9 @@ function saveCode(title, text) {
     data: JSON.stringify(obj),
     success: function(data) {
       console.log("SUCCESS!", data);
+      if(data.error !== undefined) {
+        return sweetAlert("Title taken...", "This title is already taken! Pick another!", "error")
+      }
       window.location.href = data.redirect_url;
     },
     error: function(data, err) {

@@ -10,7 +10,6 @@ router.use(bodyParser.json());
 
 router.get('/:something', function(req, res, next) {
  var path = db.child(req.params.something).child('text');
-  var text = "test"
   new Firebase((process.env.FIREBASE_URL || require('../config').FIREBASE_URL) + req.params.something + "/text").once('value', function(snap) {
    console.log(snap.val());
    if(snap.val() === null) {
