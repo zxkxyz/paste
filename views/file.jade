@@ -4,6 +4,10 @@ block content
   link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/monokai.min.css")
   script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js")
   h2 Paste
+  div(class="stamps")
+    span(class="stamp") Made: #{timestamp}
+    &middot;
+    span(class="stamp") Views: #{views}
   pre
     code #{text}
   script $(function() { hljs.configure({tabReplace: '  '}); hljs.initHighlighting(); $('h2').on('click', function() { window.location.href="/" })});

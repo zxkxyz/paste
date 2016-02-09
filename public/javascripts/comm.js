@@ -27,7 +27,8 @@ function saveCode(title, text) {
 
   var obj = {
     title: title,
-    text: text
+    text: text,
+    timestamp: moment().format('MMMM Do YYYY, h:mm:ss a')
   }
 
   $.ajax({

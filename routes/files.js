@@ -9,13 +9,15 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.json());
 
 router.get('/:something', function(req, res, next) {
- var path = db.child(req.params.something).child('text');
-  new Firebase((process.env.FIREBASE_URL || require('../config').FIREBASE_URL) + req.params.something + "/text").once('value', function(snap) {
-   console.log(snap.val());
+  new Firebase((process.env.FIREBASE_URL || require('../config').FIREBASE_URL) + req.params.something).once('value', function(snap) {
    if(snap.val() === null) {
-    res.redirect('/');
+     res.redirect('/');
+   } else {
+     var currview = snap.val().views + 1;
+     var main = db.child(req.params.something);
+     main.child('views').set(currview);
+     res.render('file', { title: req.params.something, text: snap.val().text, timestamp: snap.val().timestamp, views: currview });
    }
-   res.render('file', { title: req.params.something, text: snap.val() });
   });
 });
 

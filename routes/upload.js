@@ -12,6 +12,8 @@ router.post('/', function(req, res, next) {
    } else {
     var main = db.child(req.body.title);
     main.child('text').set(req.body.text);
+    main.child('timestamp').set(req.body.timestamp);
+    main.child('views').set(0);
     res.send({redirect_url: req.header('Referer') + "t/" + req.body.title});
    }
   });
